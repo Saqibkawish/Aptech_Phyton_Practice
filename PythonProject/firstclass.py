@@ -285,39 +285,58 @@ import  pandas
 # print(dFrame)
 
 import pandas as pd
+#
+# # Sample data
+# product_name = ["Headphone", "Mouse", "Keyboard", "Monitor", "Speaker"]
+# price = [1500, 800, 1200, 10000, 2500]
+# brand = ["Sony", "Logitech", "HP", "Dell", "JBL"]
+# category = ["Audio", "Peripheral", "Peripheral", "Display", "Audio"]
+#
+# # Create dictionary
+# Products = {
+#     "Product Name": product_name,
+#     "Price (PKR)": price,
+#     "Brand": brand,
+#     "Category": category
+# }
+#
+# # Create DataFrame
+# product_table = pd.DataFrame(Products)
+#
+# # add Column
+#
+# product_table["stock"] = "Available"
+#
+#
+# # Print dictionary and DataFrame
+# print(Products)
+# print(product_table)
+# #   print price grater than 1000
+# print(product_table[product_table["Price (PKR)"] >= 1000])
+# print(product_table[product_table["Category"] == "Audio"])
+# print(product_table[
+#           (product_table["Brand"] == "Dell")
+#     &
+#           (product_table["Price (PKR)"] >= 1500)
+#       ])
+#
+# product_table.to_csv("ProductData.csv", index= False)
 
-# Sample data
-product_name = ["Headphone", "Mouse", "Keyboard", "Monitor", "Speaker"]
-price = [1500, 800, 1200, 10000, 2500]
-brand = ["Sony", "Logitech", "HP", "Dell", "JBL"]
-category = ["Audio", "Peripheral", "Peripheral", "Display", "Audio"]
+import random
+import string
 
-# Create dictionary
-Products = {
-    "Product Name": product_name,
-    "Price (PKR)": price,
-    "Brand": brand,
-    "Category": category
-}
+print("******** Password Generator ********")
+length = int(input("Enter Password Length: "))
 
-# Create DataFrame
-product_table = pd.DataFrame(Products)
+all_charc = string.digits + string.ascii_letters + string.punctuation
+password = []
 
-# add Column
+if length < 8:
+    print("Password Length must be 8 characters long")
+else:
+    for a in range(length):
+        password.append(random.choice(all_charc))
 
-product_table["stock"] = "Available"
-
-
-# Print dictionary and DataFrame
-print(Products)
-print(product_table)
-#   print price grater than 1000
-print(product_table[product_table["Price (PKR)"] >= 1000])
-print(product_table[product_table["Category"] == "Audio"])
-print(product_table[
-          (product_table["Brand"] == "Dell")
-    &
-          (product_table["Price (PKR)"] >= 1500)
-      ])
-
-product_table.to_csv("ProductData.csv", index= False)
+    random.shuffle(password)
+    string_pswd = "".join(password)
+    print(f"Randomly Generated Password is: {string_pswd}")
