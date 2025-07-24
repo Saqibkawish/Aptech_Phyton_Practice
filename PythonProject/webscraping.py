@@ -28,5 +28,5 @@ anchor_data_dic = {
 }
 
 df = pd.DataFrame(anchor_data_dic)
-df.to_csv("Lahore_Dermatologists.csv", index=False)
+df.to_csv("saqib.csv", index=False)
 print(df)
